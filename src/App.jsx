@@ -1,26 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import fireWatchLogo from './assets/fire-watch-logo.svg'
 import './App.css'
+import {useState} from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+    const [online, setOnline] = useState("❌ Desconectado");
+    //conectWebSocket();
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+          <img src={fireWatchLogo} className="logo react" alt="Site logo" />
       </div>
       <h1>Fire-Watch</h1>
       <div className="card">
         <p className="info-text">
             Sua ferramenta de monitoramento de risco de incêndio florestal em tempo real.
         </p>
+          <p className="info-text">
+             Status dos sensores:
+          </p>
+          <p className="info-text">
+              {online}
+          </p>
+
       </div>
       <p className="read-the-docs">
 
@@ -28,8 +31,8 @@ function App() {
         <div className="card_container">
             <div className="card">
                 <div className="zone zone_1">
-                    <p>Status Zona 1</p>
-                    <p>Tamanho do campo</p>
+                    <p>🔬 Status Zona 1</p>
+                    <p>Local: Plantação de soja</p>
 
 
                     <div className="info_menu">
@@ -45,7 +48,7 @@ function App() {
             <div className="card">
                 <div className="zone zone_2">
                     <p>Status Zona 1</p>
-                    <p>Tamanho do campo</p>
+                    <p>Local: Plantação de milho</p>
 
 
                     <div className="info_menu">
@@ -58,6 +61,9 @@ function App() {
                 </div>
             </div>
         </div>
+        <footer>
+        <p>footer</p>
+        </footer>
     </>
   )
 }
