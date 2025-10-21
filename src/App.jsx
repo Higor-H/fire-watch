@@ -1,11 +1,31 @@
 import fireWatchLogo from './assets/fire-watch-logo.svg'
 import './App.css'
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import { connectWebSocket } from "./api/WebSocket.jsx";
 
 function App() {
 
     const [online, setOnline] = useState("❌ Desconectado");
-    //conectWebSocket();
+    const [umidade, setUmidade] = useState("-");
+    const [temperatura, setTemperatura] = useState("-");
+    const [fumaca, setFumaca] = useState("-");
+    const [risco, setRisco] = useState("-");
+
+    useEffect(() => {
+        const disconnect = connectWebSocket({
+            onOpen: () => setOnline("✅ Conectado"),
+            onClose: () => setOnline("❌ Desconectado"),
+            onMessage: (data) => {
+                // Espera: { zone: 1, umidade, temperatura, fumaca, risco }
+                if (data?.zone !== undefined && Number(data.zone) !== 1) return;
+                if (data?.umidade !== undefined) setUmidade(data.umidade);
+                if (data?.temperatura !== undefined) setTemperatura(data.temperatura);
+                if (data?.fumaca !== undefined) setFumaca(data.fumaca ? "Sim" : "Não");
+                if (data?.risco !== undefined) setRisco(data.risco);
+            },
+        });
+        return () => disconnect?.();
+    }, []);
 
   return (
     <>
@@ -34,29 +54,11 @@ function App() {
                     <p>🔬 Status Zona 1</p>
                     <p>Local: Plantação de soja</p>
 
-
                     <div className="info_menu">
-                        <p>Nivel de umidade:    </p>
-                        <p>temperatura:    </p>
-                        <p>Fumaça:    </p>
-
-
-                        <p>Risco de incendio: </p>
-                    </div>
-                </div>
-            </div>
-            <div className="card">
-                <div className="zone zone_2">
-                    <p>Status Zona 1</p>
-                    <p>Local: Plantação de milho</p>
-
-
-                    <div className="info_menu">
-                        <p>Nivel de umidade:    </p>
-                        <p>temperatura:    </p>
-                        <p>Fumaça:    </p>
-
-                        <p>Risco de incendio: </p>
+                        <p>Nivel de umidade:  {umidade}  </p>
+                        <p>temperatura:  {temperatura}  </p>
+                        <p>Fumaça:  {fumaca}  </p>
+                        <p>Risco de incendio: {risco} </p>
                     </div>
                 </div>
             </div>
