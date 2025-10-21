@@ -6,7 +6,7 @@
 }
 
 .logo {
-  height: 6em;
+  height: 10em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
@@ -15,7 +15,7 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #ee6b01);
 }
 
 @keyframes logo-spin {
@@ -43,13 +43,23 @@
 
 .card_container{
     display: flex;
-    border-radius: 8px;
-    border: 1px solid #ee6b01;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+
 }
 
-card_container p{
-   font-size: 32px;
+.card_container p{
+   font-size: 18px;
 }
-info-text {
+.info-text {
     font-size: 24px;
+}
+
+
+.zone {
+    padding: 1.5em;
+    border-radius: 8px;
+    border: 1px solid #ee6b01;
+    width: 500px;
 }
