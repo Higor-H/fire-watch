@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.card_container{
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid #ee6b01;
+}
+
+card_container p{
+   font-size: 32px;
+}
+info-text {
+    font-size: 24px;
+}
