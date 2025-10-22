@@ -102,7 +102,7 @@ Hardware: Arduino, Raspberry Pi 4
 
 Sensores: DHT11, MQ-2, Sensor de umidade do solo
 
-Software: Python (Flask), SQLite, HTML/CSS/JS
+Software: Python (Flask), Tornado (Websocket), HTML/CSS/JS, React, 
 
 Comunicação: Serial / WebSocket
 
