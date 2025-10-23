@@ -1,7 +1,6 @@
 #root {
     display: contents;
 }
-/* ===== LINKS ===== */
 a {
     font-weight: 500;
     color: #646cff;
@@ -11,7 +10,6 @@ a:hover {
     color: #535bf2;
 }
 
-/* ===== BODY E LAYOUT PRINCIPAL ===== */
 html, body {
     margin: 0;
     padding: 0;
@@ -27,7 +25,6 @@ body {
     box-sizing: border-box;
 }
 
-/* ===== DIVS PRINCIPAIS ===== */
 .divLeft {
     flex: 4;
     background-color: #FFF5E6;
@@ -48,7 +45,6 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* ===== CARD ===== */
 .divRight .card {
     width: 100%;
     max-width: 450px;
@@ -59,13 +55,11 @@ body {
     text-align: left;
 }
 
-/* ===== HEADINGS ===== */
 h1 {
     font-size: 3.2em;
     line-height: 1.1;
 }
 
-/* ===== BUTTONS ===== */
 button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -85,7 +79,6 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* ===== LIGHT MODE ===== */
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
@@ -99,7 +92,6 @@ button:focus-visible {
     }
 }
 
-/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 900px) {
     body {
         flex-direction: column; 

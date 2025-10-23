@@ -42,6 +42,7 @@ function App() {
                         <p className="info-text2">
                             {online}
                         </p>
+                        <p className="info-text3">BY: Enzo Almeida, Higor Milani, Maria Chehade, Matheus Durante, Guilherme Oliveira</p>
                     </div>
                 </div>
 
