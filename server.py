@@ -33,7 +33,7 @@ def make_app():
         (r"/ws", WebSocketHandler),
     ])
 
-# adiciona estado persistente com as chaves solicitadas
+
 state = {
     "umidade": "",
     "temperatura": "",
@@ -58,8 +58,8 @@ async def read_serial_data():
             elif "Humidity" in data or " Humidity" in data or data.lower().startswith("humidity"):
                 state["umidade"] = data.replace("Humidity:", "").replace("Humidity", "").replace(" Humidity:", "").replace(" Humidity", "").replace(":", "").strip()
 
-            # envia o estado atual (sempre com as 4 chaves) como JSON-like dict
-            await asyncio.sleep(0)  # yield para o loop de eventos
+            
+            await asyncio.sleep(0)  
 
             for client in list(clients):
                 try:
@@ -70,7 +70,7 @@ async def read_serial_data():
 
         await asyncio.sleep(0.1)
 
-# função utilitária para checar porta livre
+
 def is_port_free(port, host="0.0.0.0"):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
@@ -81,7 +81,7 @@ def is_port_free(port, host="0.0.0.0"):
 
 async def main():
     app = make_app()
-    # tenta a porta padrão e, se ocupada, tenta portas seguintes (até +9)
+    
     base_port = 8888
     port = None
     for p in range(base_port, base_port + 10):
