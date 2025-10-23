@@ -6,9 +6,9 @@ O FireWatch é um sistema IoT desenvolvido para monitorar e prever incêndios po
 | ------------------ | --------- | --------------------------------------------- |
 | Enzo Gambatto      | 1134927   | Integração Raspberry + Arduino / Documentação |
 | Maria Chehade      | 1134607   | Hardware Arduino + Frontend                   |
-| Higor Milani       | 1135828   | Frontend                                      |
+| Higor Milani       | 1135828   | Frontend + intergração                        |
 | Matheus Durante    | 1134843   | Código Arduino                                |
-| Guilherme Oliveira | 1120756   | Código Arduino / Integração                   |
+| Guilherme Oliveira | 1120756   | Código Arduino  + Hardware Arduino            |
 
 🎯 Objetivos
 Objetivo Geral
