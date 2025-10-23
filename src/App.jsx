@@ -7,7 +7,7 @@ function App() {
     const [online, setOnline] = useState("❌ Desconectado");
     const [umidade, setUmidade] = useState("-");
     const [temperatura, setTemperatura] = useState("-");
-    // const [gas, setGas] = useState("-");
+     const [gas, setGas] = useState("-");
     const [risco, setRisco] = useState("-");
 
     useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
                 //if (data?.zone !== undefined && Number(data.zone) !== 1) return;
                 if (data?.umidade !== undefined) setUmidade(data.umidade);
                 if (data?.temperatura !== undefined) setTemperatura(data.temperatura);
-                // if (data?.gas !== undefined) setGas(data.gas ? "Sim" : "Não");
+                 if (data?.gas !== undefined) setGas(data.gas);
                 if (data?.risco !== undefined) setRisco(data.risco);
             },
         });
@@ -31,7 +31,7 @@ function App() {
             <div id="root">
                 <div className="divLeft">
                     <img src={fireWatchLogo} className="logo react" alt="Site logo" />
-                    {/*<h1>Fire-Watch</h1>*/}
+                    
                     <div className="card">
                         <p className="info-text">
                             Sua ferramenta de monitoramento de risco de incêndio florestal em tempo real.
@@ -56,7 +56,9 @@ function App() {
                             <div className="info_menu">
                                 <p>Nível de umidade..... <b>{umidade}</b>%</p>
                                 <p>Temperatura............ <b>{temperatura}</b>°C</p>
-                                <p>Risco de incêndio..... <b>{risco}</b>%</p>
+                                <p>Fumaça.......................... <b>{gas}</b></p>
+                                <p>Risco de incêndio.............. <b>{risco}</b></p>
+                                
                             </div>
                         </div>
                     </div>

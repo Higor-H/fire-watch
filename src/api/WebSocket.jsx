@@ -1,5 +1,5 @@
 export function connectWebSocket({ onOpen, onMessage, url } = {}) {
-  const wsUrl = url || (import.meta?.env?.VITE_WS_URL) || "ws://pitanga:8888/ws";
+  const wsUrl = url || (import.meta?.env?.VITE_WS_URL) || "ws://pitanga:8889/ws";
   const ws = new WebSocket(wsUrl);
 
   ws.onopen = () => {
