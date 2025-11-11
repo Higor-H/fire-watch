@@ -80,6 +80,11 @@
 
 }
 
+.risk_info{
+    color: #ee6b01;
+    font-size: 1.2rem;
+}
+
 .zone {
     text-align: center;
     /*padding: 1.5em;*/

@@ -30,7 +30,16 @@ function App() {
                 if (data?.umidade !== undefined) setUmidade(data.umidade);
                 if (data?.temperatura !== undefined) setTemperatura(data.temperatura);
                  if (data?.gas !== undefined) setGas(data.gas);
-                if (data?.risco !== undefined) setRisco(data.risco);
+                if (data?.risco !== undefined) {
+                    const riscoMap = {
+                        0: "Não propenso a incêndios",
+                        1: "Baixa chance de incêndio",
+                        2: "Cuidado! Tempo propenso a incêndios",
+                        3: "Possível incêndio em andamento"
+                    };
+
+                    setRisco(riscoMap[data.risco] || "Risco desconhecido");
+                }
             },
         });
         return () => disconnect?.();
@@ -47,7 +56,15 @@ function App() {
                 if (data?.umidade !== undefined) setUmidade2(data.umidade);
                 if (data?.temperatura !== undefined) setTemperatura2(data.temperatura);
                 if (data?.gas !== undefined) setGas2(data.gas);
-                if (data?.risco !== undefined) setRisco2(data.risco);
+                if (data?.risco !== undefined) {
+                    const riscoMap = {
+                        0: "Não propenso a incêndios",
+                        1: "Baixa chance de incêndio",
+                        2: "Cuidado! Tempo propenso a incêndios",
+                        3: "🔥 Possível incêndio em andamento! 🔥"
+                    };
+                    setRisco2(riscoMap[data.risco] || "Risco desconhecido");
+                }
             },
         });
         return () => disconnect?.();
@@ -87,7 +104,7 @@ function App() {
                                 <p>Nível de umidade......... <b>{umidade}</b>%</p>
                                 <p>Temperatura............ <b>{temperatura}</b>°C</p>
                                 <p>Fumaça............................ <b>{gas}</b></p>
-                                <p>Risco de incêndio.............. <b>{risco}</b></p>
+                                <p className="risk_info"><b>{risco}</b></p>
                                 
                             </div>
                         </div>
@@ -100,7 +117,7 @@ function App() {
                                 <p>Nível de umidade........ <b>{umidade2}</b>%</p>
                                 <p>Temperatura............ <b>{temperatura2}</b>°C</p>
                                 <p>Fumaça............................ <b>{gas2}</b></p>
-                                <p>Risco de incêndio.............. <b>{risco2}</b></p>
+                                <p className="risk_info"><b>{risco2}</b></p>
 
                             </div>
                         </div>
