@@ -36,23 +36,28 @@ body {
     flex: 6;
     flex-direction: column;
     background-color: #E0CCB2;
-    /*padding: 2rem;*/
-    box-sizing: border-box;
+    padding: 2rem;
+    /*box-sizing: border-box;*/
 
     display: flex;
-    justify-content: left;
+    /*justify-content: left;*/
     align-items: center;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 .divRight .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
     width: 100%;
-    max-width: 450px;
-    padding: 1.5rem;
-    background-color: #E0CCB2;
+}
+
+.divRight .card > div {
+    width: 45%;
     border-radius: 8px;
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
 }
 
 h1 {

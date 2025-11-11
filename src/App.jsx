@@ -2,18 +2,28 @@ import fireWatchLogo from './assets/fire-watch-logo-black.svg'
 import './App.css'
 import { useState, useEffect } from "react";
 import { connectWebSocket } from "./api/WebSocket.jsx";
+import {connectWebSocket2} from "./api/WebSocket2.jsx";
 
 function App() {
-    const [online, setOnline] = useState("❌ Desconectado");
+    const [online, setOnline] = useState(" Desconectado ❌");
     const [umidade, setUmidade] = useState("-");
     const [temperatura, setTemperatura] = useState("-");
      const [gas, setGas] = useState("-");
     const [risco, setRisco] = useState("-");
 
+
+    const [online2, setOnline2] = useState(" Desconectado ❌");
+    const [umidade2, setUmidade2] = useState("-");
+    const [temperatura2, setTemperatura2] = useState("-");
+    const [gas2, setGas2] = useState("-");
+    const [risco2, setRisco2] = useState("-");
+
+
+
     useEffect(() => {
         const disconnect = connectWebSocket({
-            onOpen: () => setOnline("✅ Conectado"),
-            onClose: () => setOnline("❌ Desconectado"),
+            onOpen: () => setOnline(" Conectado ✅"),
+            onClose: () => setOnline(" Desconectado ❌"),
             onMessage: (data) => {
                
                 //if (data?.zone !== undefined && Number(data.zone) !== 1) return;
@@ -26,6 +36,24 @@ function App() {
         return () => disconnect?.();
     }, []);
 
+
+    useEffect(() => {
+        const disconnect = connectWebSocket2({
+            onOpen: () => setOnline2(" Conectado ✅"),
+            onClose: () => setOnline2(" Desconectado ❌"),
+            onMessage: (data) => {
+
+                //if (data?.zone !== undefined && Number(data.zone) !== 1) return;
+                if (data?.umidade !== undefined) setUmidade2(data.umidade);
+                if (data?.temperatura !== undefined) setTemperatura2(data.temperatura);
+                if (data?.gas !== undefined) setGas2(data.gas);
+                if (data?.risco !== undefined) setRisco2(data.risco);
+            },
+        });
+        return () => disconnect?.();
+    }, []);
+
+
     return (
         <>
             <div id="root">
@@ -37,28 +65,43 @@ function App() {
                             Sua ferramenta de monitoramento de risco de incêndio florestal em tempo real.
                         </p>
                         <p className="info-text2">
-                            Status dos sensores:
+                            Status de conexão:
                         </p>
                         <p className="info-text2">
-                            {online}
+                            Zona 1 = {online}
+                        </p><p className="info-text2">
+                            Zona 2 = {online2}
                         </p>
                         <p className="info-text3">BY: Enzo Almeida, Higor Milani, Maria Chehade, Matheus Durante, Guilherme Oliveira</p>
                     </div>
                 </div>
 
                 <div className="divRight">
-                    <p style={{ fontSize: '85px' }}>🔍</p>
+                    <h3 style={{ fontSize: '85px' }}>🔍</h3>
                     <div className="card">
                         <div className="zone zone_1">
 
                             <p style={{ fontSize: 22 }}><b>🔬 Status Zona 1</b></p>
-                            <p>Local: <b>Plantação de soja</b></p>
+                            <p>Local: <b>Área Norte</b></p>
                             <div className="info_menu">
-                                <p>Nível de umidade..... <b>{umidade}</b>%</p>
+                                <p>Nível de umidade......... <b>{umidade}</b>%</p>
                                 <p>Temperatura............ <b>{temperatura}</b>°C</p>
-                                <p>Fumaça.......................... <b>{gas}</b></p>
+                                <p>Fumaça............................ <b>{gas}</b></p>
                                 <p>Risco de incêndio.............. <b>{risco}</b></p>
                                 
+                            </div>
+                        </div>
+
+                        <div className="zone zone_2">
+
+                            <p style={{ fontSize: 22 }}><b>🔬 Status Zona 2</b></p>
+                            <p>Local: <b>Área Leste</b></p>
+                            <div className="info_menu">
+                                <p>Nível de umidade........ <b>{umidade2}</b>%</p>
+                                <p>Temperatura............ <b>{temperatura2}</b>°C</p>
+                                <p>Fumaça............................ <b>{gas2}</b></p>
+                                <p>Risco de incêndio.............. <b>{risco2}</b></p>
+
                             </div>
                         </div>
                     </div>
