@@ -17,7 +17,7 @@ serial_port = serial.Serial(serial_port_name, 9600)
 time.sleep(2)
 
 
-params = pika.URLParameters('amqps://olwzrmms:gN9IrwdQnueRM96S9lyNzC-WntXi4y1-@jaragua.lmq.cloudamqp.com/olwzrmms')
+params = pika.URLParameters('')
 connection = None
 channel = None
 
