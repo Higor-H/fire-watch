@@ -1,0 +1,61 @@
+/* src/components/Dash.css */
+.dash-container {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-color: #101820;
+    color: #fff;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #ff4c4c;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.chart-card {
+    background: #1a2732;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(255, 76, 76, 0.2);
+}
+
+.table-container {
+    margin-top: 30px;
+    background: #1a2732;
+    border-radius: 10px;
+    padding: 15px;
+    overflow-x: auto;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 8px 12px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.table-container th {
+    color: #ff4c4c;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
